@@ -1,0 +1,167 @@
+Oropharynx carcinoma
+Input:
+A. Right neck contents levels II, III and IV
+B. Right base of tongue
+C. Right palatine tonsil
+D. Revised inferior and lateral margin
+E. Left neck levels II-IV
+
+FINAL DIAGNOSIS 
+Output:
+A. Lymph nodes, right neck, levels II-IV, dissection:
+- 
+
+B. Oropharynx, right base of tongue, excision (fs):
+- 
+
+C. Oropharynx, right palatine tonsil, excision:
+- 
+
+D. Oropharynx, right base of tongue, revised inferior and lateral margin, excision (fs):
+- 
+
+E. Lymph nodes, left neck, levels II-IV, dissection:
+- 
+
+Oropharynx
+Input:
+A. Left palatine tonsil
+B. Left lingual tonsil 
+C. Right lingual tonsil
+D. Left neck contents level II - V
+
+FINAL DIAGNOSIS 
+Output:
+A. Oropharynx, left palatine tonsil, excision (fs):
+-  
+
+B. Oropharynx, left lingual tonsil, excision (fs):
+-  
+
+C. Oropharynx, right lingual tonsil, excision (fs):
+- 
+
+D. Lymph nodes, left neck, levels II-V, dissection:
+- 
+______________________________________________________________________________
+Oropharynx
+Input:
+A. Right base of tongue
+B. Radical right tonsillectomy with glosso-tonsillar sulcus
+C. Right tonsil additional superior margin
+D. Right neck contents levels II-IV
+E. Right tonsil  revised superior lateral margin
+FINAL DIAGNOSIS
+Output:
+A. Oropharynx, right base of tongue, biopsy (fs):
+- 
+
+B. Oropharynx, right tonsil and glossotonsillar sulcus, radical tonsillectomy (fs):
+- 
+
+C. Oropharynx, right tonsil additional superior margin, excision (fs):
+- 
+
+D. Lymph nodes, right neck, levels II-IV, dissection:
+- 
+
+E. Oropharynx, right tonsil  revised superior lateral margin, excision (fs):
+-
+Sinonasal
+Input:
+A. Left anterior medial maxillary wall with tear duct
+B. Debris left maxillary sinus
+C. Left maxillary mass
+D. Left posterior attachment of mass
+E. Inferior attachment of mass
+F. Left sinonasal contents
+
+
+FINAL DIAGNOSIS 
+Output:
+A. Paranasal sinus, left anterior medial maxillary wall with tear duct, excision:
+- 
+
+B. Paranasal sinus, left maxillary "debris", extraction:
+- 
+
+C. Paranasal sinus, left maxillary "mass", excision (fs):
+- 
+
+D. Paranasal sinus, left maxillary "posterior attachment of mass", excision:
+- 
+
+E. Paranasal sinus, left maxillary "inferior attachment of mass", excision:
+- 
+
+F. Nasal cavity and paranasal sinuses, left, extraction:
+- 
+
+Thyroid
+Input:
+A. Total thyroid
+B. Central neck contents
+C. Right neck contents
+Output:
+FINAL DIAGNOSIS
+A.	Thyroid gland, total thyroidectomy:
+-
+B. Lymph nodes, central neck, dissection:
+- 
+C. Lymph nodes, right neck, dissection:
+- 
+
+Larynx
+Input:
+A. Right true vocal fold
+B. Right paraglottic space
+C. Lateral mid right true vocal fold
+D. Anterior superior right true vocal fold
+E. Right mid ventricle
+F. Posterior medial right true vocal fold
+G. Lateral right inferior true vocal fold
+H. Right false vocal fold
+I. Right neck contents levels II-IV
+J. Left neck contents levels II-IV
+K. Larynx
+L. Left anterior thyroid tissue
+
+FINAL DIAGNOSIS 
+Output:
+
+A. Larynx, right true vocal fold, excision (fs):
+- 
+
+B. Larynx, right paraglottic space, excision (fs):
+- 
+
+C. Larynx, lateral mid right true vocal fold, excision (fs):
+- 
+
+D. Larynx, anterior superior right true vocal fold, excision (fs):
+- 
+
+E. Larynx, right mid ventricle, excision (fs):
+- 
+
+F. Larynx, posterior medial right true vocal fold, excision (fs):
+-
+
+G. Larynx, lateral right inferior true vocal fold, excision (fs):
+- 
+
+H. Larynx, right false vocal fold, excision (fs):
+- 
+
+I. Lymph nodes, right neck, levels II-IV, dissection:
+
+
+J. Lymph nodes, left neck, levels II-IV, dissection:
+- 
+
+K. Larynx, total laryngectomy:
+-
+
+L. Thyroid, left anterior thyroid tissue, excision:
+-
+
