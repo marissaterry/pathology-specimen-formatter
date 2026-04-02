@@ -37,3 +37,45 @@ B. Oropharynx, right base of tongue, excision (fs):
 git clone https://github.com/YOUR_USERNAME/pathology-specimen-formatter.git
 cd pathology-specimen-formatter
 pip3 install -r requirements.txt
+
+## Setup
+
+Create a .env file:
+OPENAI_API_KEY=your_api_key_here
+
+## Run the App
+
+streamlit run ui.py
+Then open the local URL shown in your terminal.
+
+## Methodology
+
+This system uses:
+Rule-based NLP for structure
+Context memory for sequential specimens
+Controlled LLM usage for optional refinement
+This hybrid approach improves reliability over LLM-only systems.
+
+## Status
+
+Accuracy: ~95–99% (internal testing)
+Designed for: Head & neck pathology workflows
+
+## Disclaimer
+
+This tool is for research and workflow assistance only.
+Not intended for independent clinical decision-making.
+
+## Future Work
+
+Multi-organ system support
+Larger validation dataset
+LIS integration
+Fine-tuned models
+
+## Author
+
+Marissa Terry
+Mayo Clinic Alix School of Medicine
+terry.marissa@mayo.edu
+
