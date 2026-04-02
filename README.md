@@ -32,11 +32,11 @@ A. Oropharynx, right base of tongue, excision:
 B. Oropharynx, right base of tongue, excision (fs):
 
 ## Installation
-
-```bash
-git clone https://github.com/YOUR_USERNAME/pathology-specimen-formatter.git
-cd pathology-specimen-formatter
-pip3 install -r requirements.txt
+  ```bash
+  git clone https://github.com/marissaterry/pathology-specimen-formatter.git
+  cd pathology-specimen-formatter
+  pip3 install -r requirements.txt
+```
 
 ## Setup
 
