@@ -22,6 +22,7 @@ D. Oropharynx, right base of tongue, revised inferior and lateral margin, excisi
 
 E. Lymph nodes, left neck, levels II-IV, dissection:
 - 
+______________________________________________________________________________
 
 Oropharynx
 Input:
@@ -67,6 +68,8 @@ D. Lymph nodes, right neck, levels II-IV, dissection:
 
 E. Oropharynx, right tonsil  revised superior lateral margin, excision (fs):
 -
+______________________________________________________________________________
+
 Sinonasal
 Input:
 A. Left anterior medial maxillary wall with tear duct
@@ -96,6 +99,7 @@ E. Paranasal sinus, left maxillary "inferior attachment of mass", excision:
 
 F. Nasal cavity and paranasal sinuses, left, extraction:
 - 
+______________________________________________________________________________
 
 Thyroid
 Input:
@@ -110,6 +114,7 @@ B. Lymph nodes, central neck, dissection:
 - 
 C. Lymph nodes, right neck, dissection:
 - 
+______________________________________________________________________________
 
 Larynx
 Input:
@@ -164,4 +169,181 @@ K. Larynx, total laryngectomy:
 
 L. Thyroid, left anterior thyroid tissue, excision:
 -
+______________________________________________________________________________
+
+Nasal cavity resection
+Input:
+A. Posterior septal margin
+B. Left inferior turbinate margin
+C. Right middle turbinate margin
+D. Superior margin, cribiform plate
+E. Inferior margin at maxillary crest
+F. Nasal bone outer margin
+G. Anterior nasal spine
+H. Total rhinectomy
+I. Additional nasal tumor
+J. Left neck contents levels II-IV
+K. Right neck contents levels II-IV
+
+FINAL DIAGNOSIS 
+Output:
+
+A. Nasal cavity, posterior septal margin, excision (fs):
+- 
+
+B. Nasal cavity, left inferior turbinate margin, excision (fs):
+-
+
+C. Nasal cavity, right middle turbinate margin, excision (fs):
+-
+
+D. Nasal cavity, superior margin, cribriform plate, excision (fs):
+- 
+
+E. Nasal cavity, inferior margin at maxillary crest, excision (fs):
+- 
+
+F. Bone, nasal bone outer margin, excision:
+- 
+
+G. Bone, anterior nasal spine, excision:
+- 
+
+H. Nose, total rhinectomy:
+-
+
+I. Nasal cavity, "additional nasal tumor", excision:
+- 
+
+J. Lymph nodes, left neck, levels II-IV, dissection:
+- 
+
+K. Lymph nodes, right neck, levels II-IV, dissection:
+- 
+______________________________________________________________________________
+Input:
+A. Right anterior maxillary wall soft and hard
+B. Right maxillary sinus contents
+C. Right maxilla and soft palate
+D. Left neck contents levels I-V
+
+FINAL DIAGNOSIS 
+Output:
+A. Oral cavity and bone, right anterior maxillary wall soft and hard, resection:
+- 
+
+B. Paranasal sinus, right maxillary, extraction:
+- 
+
+C. Oral cavity/oropharynx, right maxilla and soft palate, resection:
+- 
+
+D. Lymph nodes, left neck, levels II-IV, dissection:
+-
+______________________________________________________________________________
+
+Input:
+A. Right true vocal fold, biopsy
+
+
+FINAL DIAGNOSIS 
+Output:
+A. Larynx, right true vocal fold, biopsy:
+- 
+______________________________________________________________________________
+Input:
+A. Superior nasopharyngeal cyst
+B. Nasopharyngeal tumor
+C. Superior margin nasopharyngeal 
+D. Lateral margin nasopharyngeal tumor
+E. Inferior margin nasopharyngeal tumor
+F. Medial margin nasopharyngeal tumor
+G. Deep margin nasopharyngeal tumor
+
+FINAL DIAGNOSIS 
+Output:
+A. Nasopharynx, superior "cyst", excision:
+- 
+
+B. Nasopharynx, "tumor", excision:
+- 
+
+C. Nasopharynx, superior margin, excision (fs):
+- 
+
+D. Nasopharynx, lateral margin, excision (fs):
+- 
+
+E. Nasopharynx, inferior margin, excision (fs):
+- 
+
+F. Nasopharynx, medial margin, excision (fs) :
+- 
+
+G. Nasopharynx, deep margin, excision (fs) :
+- 
+______________________________________________________________________________
+
+Inout:
+A.	Bilateral sinonasal contents
+
+FINAL DIAGNOSIS 
+Output:
+A. Nasal cavity and paranasal sinuses, bilateral, extraction:
+-
+______________________________________________________________________________
+
+Input:
+A. Right floor of mouth
+B. Right floor of mouth new lateral margin
+C. Right floor of mouth new posterior margin
+
+FINAL DIAGNOSIS 
+Output:
+A. Oral cavity, right floor of mouth, excision (fs):
+- 
+
+B. Oral cavity, right floor of mouth new lateral margin, excision (fs):
+- 
+
+C. Oral cavity, right floor of mouth new posterior margin, excision:
+- 
+______________________________________________________________________________
+Input:
+A. Left thyroid and isthmus
+
+FINAL DIAGNOSIS 
+Output:
+A. Thyroid gland, left lobe and isthmus, thyroidectomy:
+-
+______________________________________________________________________________
+Input:
+A. Left tongue tumor
+B. Left neck level I A lymph node
+C. Left neck level I B lymph node
+D. Left facial lymph node
+E. Left submandibular gland
+F. Left neck contents level II,II,IV and V
+
+FINAL DIAGNOSIS 
+Output:
+A. Oral cavity, left tongue, partial glossectomy (fs):
+- 
+
+B. Lymph nodes, left level IA, dissection: 
+-
+
+C. Lymph nodes, left level Ib, dissection::
+
+
+D. Lymph node, left facial, dissection:
+- 
+
+E. Submandibular gland, left, neck dissection:
+- 
+
+F. Lymph nodes, left neck, levels II-V, dissection:
+- 
+
+
 
