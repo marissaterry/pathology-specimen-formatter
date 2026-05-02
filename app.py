@@ -318,7 +318,11 @@ def detect_specimen(text):
             site = site.replace("cyst", '"cyst"').strip()
         return "Nasopharynx", site, "excision (fs)" if "margin" in t else "excision"
 
-    if any(x in t for x in ["maxillary", "sinonasal", "septal", "turbinate", "cribiform", "cribriform", "nasal tumor"]):
+    if "middle meatus mass" in t:
+        site = re.sub(r"\bmass\b", "", text, flags=re.IGNORECASE).strip(" ,")
+        return "Nasal cavity", site, "excision (fs)"
+
+    if any(x in t for x in ["maxillary", "sinonasal", "septal", "turbinate", "cribiform", "cribriform", "nasal tumor", "middle meatus"]):
         if "sinus contents" in t or "sinonasal contents" in t or "debris" in t:
             return "Paranasal sinus" if "maxillary" in t else "Nasal cavity and paranasal sinuses", text, "extraction"
         return "Paranasal sinus" if "maxillary" in t else "Nasal cavity", text, "excision"
