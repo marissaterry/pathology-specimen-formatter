@@ -1,13 +1,12 @@
 Oropharynx carcinoma
-Input:
+INPUT:
 A. Right neck contents levels II, III and IV
 B. Right base of tongue
 C. Right palatine tonsil
 D. Revised inferior and lateral margin
 E. Left neck levels II-IV
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Lymph nodes, right neck, levels II-IV, dissection:
 - 
 
@@ -23,16 +22,14 @@ D. Oropharynx, right base of tongue, revised inferior and lateral margin, excisi
 E. Lymph nodes, left neck, levels II-IV, dissection:
 - 
 ______________________________________________________________________________
-
 Oropharynx
-Input:
+INPUT:
 A. Left palatine tonsil
 B. Left lingual tonsil 
 C. Right lingual tonsil
 D. Left neck contents level II - V
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Oropharynx, left palatine tonsil, excision (fs):
 -  
 
@@ -46,14 +43,14 @@ D. Lymph nodes, left neck, levels II-V, dissection:
 - 
 ______________________________________________________________________________
 Oropharynx
-Input:
+INPUT:
 A. Right base of tongue
 B. Radical right tonsillectomy with glosso-tonsillar sulcus
 C. Right tonsil additional superior margin
 D. Right neck contents levels II-IV
 E. Right tonsil  revised superior lateral margin
-FINAL DIAGNOSIS
-Output:
+
+OUTPUT:
 A. Oropharynx, right base of tongue, biopsy (fs):
 - 
 
@@ -69,19 +66,16 @@ D. Lymph nodes, right neck, levels II-IV, dissection:
 E. Oropharynx, right tonsil  revised superior lateral margin, excision (fs):
 -
 ______________________________________________________________________________
-
 Sinonasal
-Input:
+INPUT:
 A. Left anterior medial maxillary wall with tear duct
 B. Debris left maxillary sinus
 C. Left maxillary mass
 D. Left posterior attachment of mass
 E. Inferior attachment of mass
 F. Left sinonasal contents
-
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Paranasal sinus, left anterior medial maxillary wall with tear duct, excision:
 - 
 
@@ -100,14 +94,13 @@ E. Paranasal sinus, left maxillary "inferior attachment of mass", excision:
 F. Nasal cavity and paranasal sinuses, left, extraction:
 - 
 ______________________________________________________________________________
-
 Thyroid
-Input:
+INPUT:
 A. Total thyroid
 B. Central neck contents
 C. Right neck contents
-Output:
-FINAL DIAGNOSIS
+
+OUTPUT:
 A.	Thyroid gland, total thyroidectomy:
 -
 B. Lymph nodes, central neck, dissection:
@@ -115,9 +108,8 @@ B. Lymph nodes, central neck, dissection:
 C. Lymph nodes, right neck, dissection:
 - 
 ______________________________________________________________________________
-
 Larynx
-Input:
+INPUT:
 A. Right true vocal fold
 B. Right paraglottic space
 C. Lateral mid right true vocal fold
@@ -130,10 +122,8 @@ I. Right neck contents levels II-IV
 J. Left neck contents levels II-IV
 K. Larynx
 L. Left anterior thyroid tissue
-
-FINAL DIAGNOSIS 
-Output:
-
+ 
+OUTPUT:
 A. Larynx, right true vocal fold, excision (fs):
 - 
 
@@ -170,9 +160,8 @@ K. Larynx, total laryngectomy:
 L. Thyroid, left anterior thyroid tissue, excision:
 -
 ______________________________________________________________________________
-
 Nasal cavity resection
-Input:
+INPUT:
 A. Posterior septal margin
 B. Left inferior turbinate margin
 C. Right middle turbinate margin
@@ -184,10 +173,8 @@ H. Total rhinectomy
 I. Additional nasal tumor
 J. Left neck contents levels II-IV
 K. Right neck contents levels II-IV
-
-FINAL DIAGNOSIS 
-Output:
-
+ 
+OUTPUT:
 A. Nasal cavity, posterior septal margin, excision (fs):
 - 
 
@@ -221,14 +208,13 @@ J. Lymph nodes, left neck, levels II-IV, dissection:
 K. Lymph nodes, right neck, levels II-IV, dissection:
 - 
 ______________________________________________________________________________
-Input:
+INPUT:
 A. Right anterior maxillary wall soft and hard
 B. Right maxillary sinus contents
 C. Right maxilla and soft palate
 D. Left neck contents levels I-V
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Oral cavity and bone, right anterior maxillary wall soft and hard, resection:
 - 
 
@@ -241,17 +227,14 @@ C. Oral cavity/oropharynx, right maxilla and soft palate, resection:
 D. Lymph nodes, left neck, levels II-IV, dissection:
 -
 ______________________________________________________________________________
-
-Input:
+INPUT:
 A. Right true vocal fold, biopsy
-
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Larynx, right true vocal fold, biopsy:
 - 
 ______________________________________________________________________________
-Input:
+INPUT:
 A. Superior nasopharyngeal cyst
 B. Nasopharyngeal tumor
 C. Superior margin nasopharyngeal 
@@ -259,9 +242,8 @@ D. Lateral margin nasopharyngeal tumor
 E. Inferior margin nasopharyngeal tumor
 F. Medial margin nasopharyngeal tumor
 G. Deep margin nasopharyngeal tumor
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Nasopharynx, superior "cyst", excision:
 - 
 
@@ -283,23 +265,19 @@ F. Nasopharynx, medial margin, excision (fs) :
 G. Nasopharynx, deep margin, excision (fs) :
 - 
 ______________________________________________________________________________
-
-Inout:
-A.	Bilateral sinonasal contents
-
-FINAL DIAGNOSIS 
-Output:
+INPUT:
+A. Bilateral sinonasal contents
+ 
+OUTPUT:
 A. Nasal cavity and paranasal sinuses, bilateral, extraction:
 -
 ______________________________________________________________________________
-
-Input:
+INPUT:
 A. Right floor of mouth
 B. Right floor of mouth new lateral margin
 C. Right floor of mouth new posterior margin
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Oral cavity, right floor of mouth, excision (fs):
 - 
 
@@ -309,24 +287,22 @@ B. Oral cavity, right floor of mouth new lateral margin, excision (fs):
 C. Oral cavity, right floor of mouth new posterior margin, excision:
 - 
 ______________________________________________________________________________
-Input:
+INPUT:
 A. Left thyroid and isthmus
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Thyroid gland, left lobe and isthmus, thyroidectomy:
 -
 ______________________________________________________________________________
-Input:
+INPUT:
 A. Left tongue tumor
 B. Left neck level I A lymph node
 C. Left neck level I B lymph node
 D. Left facial lymph node
 E. Left submandibular gland
 F. Left neck contents level II,II,IV and V
-
-FINAL DIAGNOSIS 
-Output:
+ 
+OUTPUT:
 A. Oral cavity, left tongue, partial glossectomy (fs):
 - 
 
@@ -345,5 +321,40 @@ E. Submandibular gland, left, neck dissection:
 F. Lymph nodes, left neck, levels II-V, dissection:
 - 
 
+------------------------------------------------------------------------
+INPUT:
+A. Left lower lip
+B. Left lower lip superior lateral border of skin
+ 
+OUTPUT:
+A. Lip, left lower, resection:
+-
+ 
+B. Lip, left lower, superior lateral border of skin, excision:
+- 
+ 
+-------------------------------------------------------------------------
+INPUT:
+A. Right tonsil
+B. Left tonsil
+ 
+OUTPUT:
+A. Oropharynx, right palatine tonsil, tonsillectomy:
+-
+ 
+B. Oropharynx, left palatine tonsil, tonsillectomy:
+-
+ 
+--------------------------------------------------------------------------
+INPUT:
+A. Right middle meatus mass
+B. Bilateral sinonasal contents
+ 
+OUTPUT:
+A. Nasal cavity, right middle meatus, excision (fs):
+- 
+ 
+B. Nasal cavity and paranasal sinuses, bilateral, extraction:
+-
 
 
