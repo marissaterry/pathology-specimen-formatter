@@ -259,10 +259,10 @@ D. Nasopharynx, lateral margin, excision (fs):
 E. Nasopharynx, inferior margin, excision (fs):
 - 
 
-F. Nasopharynx, medial margin, excision (fs) :
+F. Nasopharynx, medial margin, excision (fs):
 - 
 
-G. Nasopharynx, deep margin, excision (fs) :
+G. Nasopharynx, deep margin, excision (fs):
 - 
 ______________________________________________________________________________
 INPUT:
@@ -306,11 +306,11 @@ OUTPUT:
 A. Oral cavity, left tongue, partial glossectomy (fs):
 - 
 
-B. Lymph nodes, left level IA, dissection: 
--
+B. Lymph nodes, left level IA, dissection:
+- 
 
-C. Lymph nodes, left level Ib, dissection::
-
+C. Lymph nodes, left level IB, dissection:
+- 
 
 D. Lymph node, left facial, dissection:
 - 
@@ -320,6 +320,39 @@ E. Submandibular gland, left, neck dissection:
 
 F. Lymph nodes, left neck, levels II-V, dissection:
 - 
+______________________________________________________________________________
+Lip
+INPUT:
+A. Left lower lip
+B. Left lower lip superior lateral border of skin
+ 
+OUTPUT:
+A. Lip, left lower, resection:
+- 
 
+B. Lip, left lower, superior lateral border of skin, excision:
+- 
+______________________________________________________________________________
+Tonsil
+INPUT:
+A. Right tonsil
+B. Left tonsil
+ 
+OUTPUT:
+A. Oropharynx, right palatine tonsil, tonsillectomy:
+- 
 
+B. Oropharynx, left palatine tonsil, tonsillectomy:
+- 
+______________________________________________________________________________
+Nasal cavity
+INPUT:
+A. Right middle meatus mass
+B. Bilateral sinonasal contents
+ 
+OUTPUT:
+A. Nasal cavity, right middle meatus, excision (fs):
+- 
 
+B. Nasal cavity and paranasal sinuses, bilateral, extraction:
+- 
