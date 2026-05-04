@@ -48,6 +48,14 @@ class PathologyFormatterRegressionTests(unittest.TestCase):
             "-",
         )
 
+    def test_right_superior_parathyroid_biopsy_variant(self):
+        self.assert_formatted(
+            "C. Right superior parathyroid biopsy",
+            "FINAL DIAGNOSIS\n"
+            "C. Parathyroid, right superior, biopsy (fs):\n"
+            "-",
+        )
+
     def test_middle_meatus_laterality_variant(self):
         self.assert_formatted(
             "A. Left middle meatus mass",
