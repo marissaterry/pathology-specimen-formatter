@@ -356,3 +356,49 @@ A. Nasal cavity, right middle meatus, excision (fs):
 
 B. Nasal cavity and paranasal sinuses, bilateral, extraction:
 - 
+______________________________________________________________________________
+INPUT: 
+A. Delphian lymph node level 6
+B. Left thyroid lobe and isthmus
+C. Left inferior parathyroid biopsy
+D. Left central neck level 6
+E. Left central neck lymph nodes at nerve insertion
+F. Left lateral neck dissection, level 2, 3, 4 and anterior5
+ 
+OUTPUT: 
+A. Lymph node, level VI Delphian, excision (fs):
+- 
+ 
+B. Thyroid gland, left lobe and isthmus, thyroidectomy (including fs):
+-
+ 
+C. Parathyroid, left inferior, biopsy (fs):
+- 
+ 
+D. Lymph node, left central neck level VI, dissection:
+- 
+ 
+E. Lymph nodes, left central neck at nerve insertion, dissection:
+- 
+ 
+F. Lymph nodes, left neck, levels II, III, IV, and anterior V, dissection:
+-  
+______________________________________________________________________________
+INPUT: 
+A. Left radical tonsil
+B. Left neck dissection levels 2-4
+ 
+OUTPUT:
+A. Oropharynx, left palatine tonsil, radical tonsillectomy (fs):
+- 
+ 
+B. Lymph nodes, left neck, levels II-IV, dissection:
+-
+______________________________________________________________________________
+INPUT:
+A. Right lateral tongue
+ 
+OUTPUT:
+A. Oral cavity, right lateral tongue, partial glossectomy (fs):
+- 
+______________________________________________________________________________

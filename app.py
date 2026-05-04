@@ -41,6 +41,7 @@ ALLOWED_PROCEDURES = {
     "radical tonsillectomy (fs)",
     "resection",
     "thyroidectomy",
+    "thyroidectomy (including fs)",
     "total laryngectomy",
     "total thyroidectomy",
 }
@@ -52,6 +53,7 @@ ARABIC_TO_ROMAN = {
     "3": "III",
     "4": "IV",
     "5": "V",
+    "6": "VI",
 }
 COMMON_SPELLING_FIXES = {
     "rigth": "right",
@@ -102,12 +104,54 @@ def load_examples():
 
     return examples
 
+
+def build_example_records(examples):
+    records = []
+    for inputs, outputs in examples:
+        for inp, out in zip(inputs, outputs):
+            input_match = re.match(r"^[A-Z]\.\s*(.*)", inp)
+            output_match = re.match(r"^[A-Z]\.\s*(.*)", out)
+            if not input_match or not output_match:
+                continue
+            raw_input = input_match.group(1).strip()
+            raw_output = output_match.group(1).strip()
+            records.append(
+                {
+                    "input": raw_input,
+                    "output": raw_output,
+                    "key": normalize_lookup_key(raw_input),
+                }
+            )
+    return records
+
 # --- NORMALIZATION ---
 def extract_levels(text):
     t = text.lower()
     compact = re.sub(r"\s+", "", t)
 
-    digit_range_match = re.search(r"levels?([1-5])-([1-5])", compact)
+    normalized_anterior_match = re.search(
+        r"levels?\s+([ivx]+)\s*,\s*([ivx]+)\s*,\s*([ivx]+)\s*,?\s*and\s*anterior\s*([ivx]+)",
+        t,
+        flags=re.IGNORECASE,
+    )
+    if normalized_anterior_match:
+        vals = [normalized_anterior_match.group(i).upper() for i in range(1, 5)]
+        return f"levels {vals[0]}, {vals[1]}, {vals[2]}, and anterior {vals[3]}"
+
+    anterior_match = re.search(
+        r"levels?\s+([1-6ivx]+)\s*,\s*([1-6ivx]+)\s*,\s*([1-6ivx]+)\s*and\s*anterior\s*([1-6ivx]+)",
+        t,
+        flags=re.IGNORECASE,
+    )
+    if anterior_match:
+        vals = []
+        for i in range(1, 5):
+            token = anterior_match.group(i).upper()
+            token = ARABIC_TO_ROMAN.get(token, token)
+            vals.append(token)
+        return f"levels {vals[0]}, {vals[1]}, {vals[2]}, and anterior {vals[3]}"
+
+    digit_range_match = re.search(r"levels?([1-6])-([1-6])", compact)
     if digit_range_match:
         start = ARABIC_TO_ROMAN[digit_range_match.group(1)]
         end = ARABIC_TO_ROMAN[digit_range_match.group(2)]
@@ -120,7 +164,7 @@ def extract_levels(text):
     if "3,4" in compact:
         return "levels III-IV"
 
-    single_digit_match = re.search(r"\blevel\s*([1-5])\b", t)
+    single_digit_match = re.search(r"\blevel\s*([1-6])\b", t)
     if single_digit_match:
         return f"level {ARABIC_TO_ROMAN[single_digit_match.group(1)]}"
 
@@ -145,13 +189,31 @@ def extract_levels(text):
 
 def normalize_levels(text):
     text = re.sub(
-        r"\blevels?\s+2\s*,\s*3\s*and\s*4\b",
+        r"\blevels?\s+2\s*,\s*3\s*,\s*4\s*,?\s*and\s*anterior\s*5\b",
+        "levels II, III, IV, and anterior V",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"\blevels?\s+2\s*,\s*3\s*,\s*4\s*,?\s*and\s*anterior5\b",
+        "levels II, III, IV, and anterior V",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"\banterior\s*([1-6])\b",
+        lambda m: f"anterior {ARABIC_TO_ROMAN[m.group(1)]}",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"\blevels?\s+2\s*,\s*3\s*and\s*4\b(?!\s*,?\s*and\s*anterior)",
         "levels II-IV",
         text,
         flags=re.IGNORECASE,
     )
     text = re.sub(
-        r"\blevels?\s+2\s*,\s*3\s*,\s*4\b",
+        r"\blevels?\s+2\s*,\s*3\s*,\s*4\b(?!\s*,?\s*and\s*anterior)",
         "levels II-IV",
         text,
         flags=re.IGNORECASE,
@@ -169,13 +231,13 @@ def normalize_levels(text):
         flags=re.IGNORECASE,
     )
     text = re.sub(
-        r"\blevels?\s+([1-5])\s*-\s*([1-5])\b",
+        r"\blevels?\s+([1-6])\s*-\s*([1-6])\b",
         lambda m: f"levels {ARABIC_TO_ROMAN[m.group(1)]}-{ARABIC_TO_ROMAN[m.group(2)]}",
         text,
         flags=re.IGNORECASE,
     )
     text = re.sub(
-        r"\blevel\s+([1-5])\b",
+        r"\blevel\s+([1-6])\b",
         lambda m: f"level {ARABIC_TO_ROMAN[m.group(1)]}",
         text,
         flags=re.IGNORECASE,
@@ -196,6 +258,12 @@ def normalize_levels(text):
     text = re.sub(r"level\s+([IVX]+)\s*-\s*([IVX]+)", r"levels \1-\2", text, flags=re.IGNORECASE)
     text = re.sub(r"II,\s*III\s*and\s*IV", "II-IV", text, flags=re.IGNORECASE)
     text = re.sub(r"II,\s*III,\s*IV", "II-IV", text, flags=re.IGNORECASE)
+    text = re.sub(
+        r"\blevels\s+II-IV,\s*and\s*anterior\s*V\b",
+        "levels II, III, IV, and anterior V",
+        text,
+        flags=re.IGNORECASE,
+    )
     return text
 
 def normalize_terms(text):
@@ -274,6 +342,13 @@ def detect_specimen(text):
         laterality = detect_laterality(text)
         return "Submandibular gland", laterality, "neck dissection"
 
+    if "lower lip" in t and "border of skin" in t:
+        laterality = detect_laterality(text)
+        detail = re.sub(r"\b(left|right)\b", "", text, flags=re.IGNORECASE)
+        detail = re.sub(r"\blower lip\b", "lower,", detail, flags=re.IGNORECASE)
+        detail = re.sub(r"\s+", " ", detail).strip(" ,")
+        return "Lip", f"{laterality} {detail}".strip(), "excision"
+
     if "lower lip" in t or re.search(r"\blip\b", t):
         laterality = detect_laterality(text)
         site = "lower" if "lower lip" in t else text
@@ -289,6 +364,12 @@ def detect_specimen(text):
 
     if "thyroid tissue" in t:
         return "Thyroid", text, "excision"
+
+    if "central neck" in t and "nerve insertion" in t:
+        laterality = detect_laterality(text)
+        site = re.sub(r"\blymph nodes?\b", "", text, flags=re.IGNORECASE)
+        site = re.sub(r"\s+", " ", site).strip(" ,")
+        return "Lymph nodes", site, "dissection"
 
     if "central neck" in t:
         return "Lymph nodes", "central neck", "dissection"
@@ -367,7 +448,8 @@ def clean_site_text(text):
     t = text.lower()
 
     # Remove margin wording from site
-    t = t.replace("margin", "").strip()
+    if margin_needs_context(text):
+        t = t.replace("margin", "").strip()
     t = re.sub(r"\blevels?\s+[ivx]+(?:\s*-\s*[ivx]+)?\b", "", t)
     t = re.sub(r"\blevels?\s+[ivx]+(?:\s*,\s*[ivx]+)*(?:\s*and\s*[ivx]+)?\b", "", t)
 
@@ -380,6 +462,16 @@ def clean_site_text(text):
     t = t.replace("left left", "left")
 
     return t.strip()
+
+
+def margin_needs_context(text):
+    lowered = normalize_terms(text).lower()
+    anchored_tokens = [
+        "tongue", "tonsil", "oropharynx", "nasopharyngeal", "nasopharynx",
+        "septal", "turbinate", "cribriform", "cribiform", "maxillary",
+        "floor of mouth", "lip", "vocal fold", "larynx", "meatus",
+    ]
+    return not any(token in lowered for token in anchored_tokens)
 
 def build_line(label, text):
     return build_line_from_fields(label, extract_rule_fields(text))
@@ -401,6 +493,103 @@ def build_memory(examples):
 
 def tokenize_for_validation(text):
     return set(re.findall(r"[a-z0-9]+", normalize_terms(text).lower()))
+
+
+def normalize_variant_key(text):
+    normalized = normalize_lookup_key(text)
+    normalized = re.sub(r"\b(left|right|bilateral)\b", "{LAT}", normalized)
+    normalized = re.sub(
+        r"\blevels?\s+[a-z0-9,\s-]+(?:and\s+[a-z0-9\s-]+)?",
+        "{LEVEL}",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    return normalized
+
+
+def find_template_examples(text, limit=3):
+    variant_key = normalize_variant_key(text)
+    input_tokens = tokenize_for_validation(text)
+    scored = []
+
+    for record in example_records:
+        score = 0
+        if record["key"] == normalize_lookup_key(text):
+            score += 100
+        if normalize_variant_key(record["input"]) == variant_key:
+            score += 50
+
+        overlap = input_tokens & tokenize_for_validation(record["input"])
+        score += len(overlap)
+
+        if score > 0:
+            scored.append((score, record))
+
+    scored.sort(key=lambda item: (-item[0], item[1]["input"]))
+    return [record for _, record in scored[:limit]]
+
+
+def has_variant_markers(text):
+    lowered = normalize_lookup_key(text)
+    if re.search(r"\b(left|right|bilateral)\b", lowered):
+        return True
+    if re.search(r"\blevels?\b", lowered):
+        return True
+    return False
+
+
+def should_try_llm_first(text, memory_key):
+    if memory_key in memory:
+        return False
+    if detect_specimen(normalize_terms(text))[0] == "Unknown":
+        return True
+    template_examples = find_template_examples(text, limit=2)
+    if has_variant_markers(text) and template_examples:
+        return True
+    return False
+
+
+def should_prefer_template_adaptation(text, memory_key, template_examples):
+    if memory_key in memory or not template_examples:
+        return False
+    if not has_variant_markers(text):
+        return False
+    return normalize_variant_key(template_examples[0]["input"]) == normalize_variant_key(text)
+
+
+def adapt_template_output(text, template_example):
+    if not template_example:
+        return None
+
+    template_input = template_example["input"]
+    template_output = template_example["output"]
+    if normalize_variant_key(template_input) != normalize_variant_key(text):
+        return None
+
+    adapted = template_output
+
+    source_laterality = detect_laterality(template_input)
+    target_laterality = detect_laterality(text)
+    if source_laterality and target_laterality and source_laterality != target_laterality:
+        adapted = re.sub(
+            rf"\b{re.escape(source_laterality)}\b",
+            target_laterality,
+            adapted,
+            flags=re.IGNORECASE,
+        )
+
+    source_levels = extract_levels(template_input)
+    target_levels = extract_levels(text)
+    if source_levels and target_levels and source_levels != target_levels:
+        adapted = re.sub(
+            re.escape(source_levels),
+            target_levels,
+            adapted,
+            flags=re.IGNORECASE,
+        )
+
+    return adapted
 
 
 def is_rule_confident(text):
@@ -484,6 +673,8 @@ def validate_llm_fields(original_text, data):
     laterality = str(data.get("laterality", "")).strip().lower()
     levels = str(data.get("levels", "")).strip()
     site = str(data.get("site", "")).strip()
+    expected_laterality = detect_laterality(original_text)
+    expected_levels = extract_levels(original_text)
 
     if specimen_type not in ALLOWED_SPECIMEN_TYPES or specimen_type == "Unknown":
         return False, "LLM returned an unsupported or unknown specimen type."
@@ -491,8 +682,12 @@ def validate_llm_fields(original_text, data):
         return False, "LLM returned an unsupported procedure."
     if laterality not in ALLOWED_LATERALITY:
         return False, "LLM returned unsupported laterality."
+    if expected_laterality and laterality != expected_laterality:
+        return False, "LLM laterality did not match the input."
     if levels and not re.fullmatch(r"level [IVX]+|levels [IVX]+-[IVX]+", levels):
         return False, "LLM returned levels in an invalid format."
+    if expected_levels and levels != expected_levels:
+        return False, "LLM levels did not match the input."
     if not site and specimen_type not in {"Thyroid gland", "Nose", "Larynx"}:
         return False, "LLM omitted the site for a specimen that requires one."
 
@@ -512,10 +707,27 @@ def validate_llm_fields(original_text, data):
     return True, ""
 
 
-def extract_with_llm(text, context):
+def extract_with_llm(text, context, template_examples=None, rule_guess=None):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         return None, "OPENAI_API_KEY is not set."
+
+    template_examples = template_examples or []
+    formatted_examples = "\n".join(
+        [
+            f'Example input: {example["input"]}\nExample output: {example["output"]}'
+            for example in template_examples
+        ]
+    ) or "No close examples available."
+
+    rule_guess_block = (
+        "Rule-based guess:\n"
+        f"specimen_type={rule_guess.get('specimen_type', '')}\n"
+        f"site={rule_guess.get('site', '')}\n"
+        f"procedure={rule_guess.get('procedure', '')}\n"
+        f"laterality={rule_guess.get('laterality', '')}\n"
+        f"levels={rule_guess.get('levels', '')}\n"
+    ) if rule_guess else "Rule-based guess:\nNone"
 
     prompt = f"""
 You are extracting structured data from a single pathology specimen line.
@@ -523,6 +735,7 @@ You are extracting structured data from a single pathology specimen line.
 Be conservative. Do not guess.
 Use only information present in the specimen line and the context fields.
 If you are not confident, return action="error".
+When the input appears to be a variant of one of the examples, adapt only the changed laterality, level, or directly corresponding wording. Do not invent a new anatomy or procedure.
 
 Allowed specimen_type values:
 {sorted(ALLOWED_SPECIMEN_TYPES)}
@@ -538,12 +751,19 @@ Rules:
 - Prefer copying the site wording directly from the input line.
 - Normalize levels only as "level II" or "levels II-IV" style.
 - Never invent anatomy or procedure.
+- If an example differs only by laterality or level, keep the same specimen_type and procedure unless the input clearly requires otherwise.
+- A substitution such as left->right, right->left, or level VI->level IV is sufficient context when the rest of the specimen phrase matches a nearby example.
 - If context is needed but still insufficient, return action="error".
 
 Context:
 last_site={context.get("last_site", "")}
 last_laterality={context.get("last_laterality", "")}
 last_specimen_type={context.get("last_specimen_type", "")}
+
+Nearby examples:
+{formatted_examples}
+
+{rule_guess_block}
 
 Input line:
 {text}
@@ -630,6 +850,7 @@ Text:
 
 examples = load_examples()
 memory = build_memory(examples)
+example_records = build_example_records(examples)
 
 def convert_specimens(input_text):
     outputs = []
@@ -662,18 +883,53 @@ def convert_specimens(input_text):
         # --- BUILD NORMAL LINE ---
         used_memory = False
         used_llm = False
+        used_template = False
+        rule_guess = extract_rule_fields(text)
+        template_examples = find_template_examples(text)
+        template_output = adapt_template_output(text, template_examples[0]) if template_examples else None
         if memory_key in memory:
             structured = f"{label}. {memory[memory_key]}"
             used_memory = True
-        elif is_rule_confident(text):
-            structured = build_line(label, text)
+        elif should_prefer_template_adaptation(text, memory_key, template_examples) and template_output:
+            structured = f"{label}. {template_output}"
+            used_template = True
         else:
-            llm_fields, llm_error = extract_with_llm(text, context)
-            if llm_fields:
-                structured = build_line_from_fields(label, llm_fields)
-                used_llm = True
+            llm_fields = None
+            llm_error = ""
+            if should_try_llm_first(text, memory_key):
+                llm_fields, llm_error = extract_with_llm(
+                    text,
+                    context,
+                    template_examples=template_examples,
+                    rule_guess=rule_guess if rule_guess.get("specimen_type") != "Unknown" else None,
+                )
+                if llm_fields:
+                    structured = build_line_from_fields(label, llm_fields)
+                    used_llm = True
+                elif template_output:
+                    structured = f"{label}. {template_output}"
+                    used_template = True
+                elif is_rule_confident(text):
+                    structured = build_line_from_fields(label, rule_guess)
+                else:
+                    structured = build_error_line(label, text, llm_error)
+            elif is_rule_confident(text):
+                structured = build_line_from_fields(label, rule_guess)
             else:
-                structured = build_error_line(label, text, llm_error)
+                llm_fields, llm_error = extract_with_llm(
+                    text,
+                    context,
+                    template_examples=template_examples,
+                    rule_guess=None,
+                )
+                if llm_fields:
+                    structured = build_line_from_fields(label, llm_fields)
+                    used_llm = True
+                elif template_output:
+                    structured = f"{label}. {template_output}"
+                    used_template = True
+                else:
+                    structured = build_error_line(label, text, llm_error)
 
         specimen_type, _, _ = detect_specimen(normalize_terms(text))
         if specimen_type != "Unknown" and not detect_margin(text):
@@ -684,7 +940,7 @@ def convert_specimens(input_text):
                 context["last_specimen_type"] = llm_specimen.group(1).strip()
 
         # --- FIX MARGIN USING CONTEXT ---
-        if "margin" in text.lower() and not used_memory:
+        if "margin" in text.lower() and not used_memory and margin_needs_context(text):
             margin_detail = normalize_terms(text).lower()
             margin_detail = margin_detail.replace("right", "").replace("left", "").strip(" ,")
             clean_site = clean_site_text(text)
@@ -710,7 +966,7 @@ def convert_specimens(input_text):
                 structured = f"{label}. {specimen_type}, {site_with_side}, excision (fs):\n-"
 
         # --- CONFIDENCE FLAG ---
-        flag = "" if used_memory or used_llm else confidence_flag(text)
+        flag = "" if used_memory or used_llm or used_template else confidence_flag(text)
         if flag and "ERROR - REVIEW REQUIRED" not in structured:
             structured = structured + f"\n{flag}"
 

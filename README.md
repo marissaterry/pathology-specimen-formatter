@@ -44,11 +44,59 @@ Create a .env file:
 
 OPENAI_API_KEY=your_api_key_here
 
+For local development, keep the key in `.env`.
+
+For Streamlit Cloud, add the key in the app settings under `Secrets`:
+
+```toml
+OPENAI_API_KEY="your_api_key_here"
+```
+
+Do not commit `.env` to GitHub.
+
 ## Run the App
 
 streamlit run ui.py
 
 Then open the local URL shown in your terminal.
+
+## Update Examples
+
+To add or revise examples in `examples.txt` and sync them to GitHub/Streamlit:
+
+1. Edit the examples file:
+
+```bash
+cd /Users/marissanewman/Desktop/pathology_ai
+nano examples.txt
+```
+
+2. Save in `nano`:
+- `Ctrl+O`
+- `Enter`
+- `Ctrl+X`
+
+3. Run the regression tests:
+
+```bash
+python3 -m unittest test_app.py
+```
+
+4. If needed, test the app locally:
+
+```bash
+streamlit run ui.py
+```
+
+5. Commit and push the changes:
+
+```bash
+git add app.py examples.txt test_app.py README.md
+git commit -m "Update pathology examples"
+git push origin main
+```
+
+If Streamlit Cloud does not refresh automatically after the push, open the app dashboard and click `Reboot` or `Redeploy`.
 
 ## Methodology
 
@@ -84,4 +132,3 @@ Marissa Terry
 Mayo Clinic Alix School of Medicine
 
 terry.marissa@mayo.edu
-
