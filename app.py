@@ -23,6 +23,7 @@ ALLOWED_SPECIMEN_TYPES = {
     "Oral cavity/oropharynx",
     "Oropharynx",
     "Paranasal sinus",
+    "Parathyroid",
     "Submandibular gland",
     "Thyroid",
     "Thyroid gland",
@@ -342,6 +343,14 @@ def detect_specimen(text):
         laterality = detect_laterality(text)
         return "Submandibular gland", laterality, "neck dissection"
 
+    if "parathyroid" in t and "biopsy" in t:
+        laterality = detect_laterality(text)
+        detail = re.sub(r"\b(left|right)\b", "", text, flags=re.IGNORECASE)
+        detail = re.sub(r"\bparathyroid\b", "", detail, flags=re.IGNORECASE)
+        detail = re.sub(r"\bbiopsy\b", "", detail, flags=re.IGNORECASE)
+        detail = re.sub(r"\s+", " ", detail).strip(" ,")
+        return "Parathyroid", f"{laterality} {detail}".strip(), "biopsy (fs)"
+
     if "lower lip" in t and "border of skin" in t:
         laterality = detect_laterality(text)
         detail = re.sub(r"\b(left|right)\b", "", text, flags=re.IGNORECASE)
@@ -511,6 +520,14 @@ def normalize_variant_key(text):
 def find_template_examples(text, limit=3):
     variant_key = normalize_variant_key(text)
     input_tokens = tokenize_for_validation(text)
+    boosted_tokens = {
+        tok for tok in input_tokens
+        if tok in {
+            "parathyroid", "thyroid", "delphian", "tonsil", "tongue", "lip",
+            "larynx", "meatus", "turbinate", "septal", "nasopharyngeal",
+            "sinonasal", "maxillary", "floor", "mouth", "neck",
+        }
+    }
     scored = []
 
     for record in example_records:
@@ -522,6 +539,7 @@ def find_template_examples(text, limit=3):
 
         overlap = input_tokens & tokenize_for_validation(record["input"])
         score += len(overlap)
+        score += 5 * len(boosted_tokens & tokenize_for_validation(record["input"]))
 
         if score > 0:
             scored.append((score, record))
