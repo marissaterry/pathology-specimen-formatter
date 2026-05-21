@@ -56,6 +56,38 @@ class PathologyFormatterRegressionTests(unittest.TestCase):
             "-",
         )
 
+    def test_right_superior_parathyroid_example(self):
+        self.assert_formatted(
+            "A. Right superior parathyroid",
+            "FINAL DIAGNOSIS\n"
+            "A. Parathyroid, right superior, parathyroidectomy (fs):\n"
+            "-",
+        )
+
+    def test_left_anterior_tongue_biopsy_example(self):
+        self.assert_formatted(
+            "A. Left anterior tongue biopsy",
+            "FINAL DIAGNOSIS\n"
+            "A. Oral cavity, left anterior tongue, biopsy:\n"
+            "-",
+        )
+
+    def test_vallecula_example(self):
+        self.assert_formatted(
+            "A. Vallecula",
+            "FINAL DIAGNOSIS\n"
+            "A. Oropharynx, vallecula, biopsy:\n"
+            "-",
+        )
+
+    def test_left_parotid_example(self):
+        self.assert_formatted(
+            "A. Left parotid",
+            "FINAL DIAGNOSIS\n"
+            "A. Parotid gland, left, parotidectomy:\n"
+            "-",
+        )
+
     def test_middle_meatus_laterality_variant(self):
         self.assert_formatted(
             "A. Left middle meatus mass",

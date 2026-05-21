@@ -402,3 +402,319 @@ OUTPUT:
 A. Oral cavity, right lateral tongue, partial glossectomy (fs):
 - 
 ______________________________________________________________________________
+INPUT:
+A. Right sphenoid sinus contents
+B. Bilateral sinonasal contents
+
+OUTPUT:
+A. Paranasal sinus, right sphenoid, extraction:
+- 
+
+B. Nasal cavity and paranasal sinuses, bilateral, extraction:
+- 
+
+INPUT:
+A. Left nasal cavity mass
+B. Left middle turbinate mass
+C. Left agger nasi mass
+
+OUTPUT:
+A. Nasal cavity, left, biopsy:
+- 
+
+B. Nasal cavity, left middle turbinate, biopsy:
+- 
+
+C. Nasal cavity, left agger nasi, biopsy:
+-
+INPUT:
+A. Tongue, biopsy
+
+OUTPUT:
+A. Oral cavity, tongue, biopsy:
+- 
+INPUT:
+A. Left tonsil , biopsy
+
+OUTPUT:
+A. Oropharynx, left tonsil, biopsy:
+- 
+INPUT:
+A. Left middle ear cholesteatoma
+
+OUTPUT:
+A. Ear, left middle, extraction:
+- 
+
+INPUT:
+A. Left anterior tongue
+B. Left posterior tongue
+
+OUTPUT:
+A. Oral cavity, left anterior tongue, biopsy:
+-
+
+INPUT:
+A. Right maxillary sinus mass
+B. Right posterior maxillary sinus wall
+C. Right maxillary sinus mass #2
+D. Right posterior maxillary sinus wall #2
+E. Right posterior superior maxillary sinus wall 
+F. Right anterior superior maxillary sinus wall 
+G. Right sinonasal contents
+
+OUTPUT:
+
+A. Paranasal sinus, right maxillary sinus "mass", excision (fs):
+- 
+
+B. Paranasal sinus, right posterior maxillary sinus wall, excision (fs):
+- 
+
+C. Paranasal sinus, right maxillary sinus "mass #2", excision:
+-
+
+D. Paranasal sinus, right posterior maxillary sinus wall #2, excision (fs):
+- 
+
+E. Paranasal sinus, right posterior superior maxillary sinus wall, excision (fs):
+- 
+
+F. Paranasal sinus, right anterior superior maxillary sinus wall excision (fs):
+-
+
+G. Nasal cavity and paranasal sinuses, right, extraction:
+- 
+
+INPUT:
+A. Total thyroid
+
+OUTPUT:
+A. Thyroid gland, total thyroidectomy:
+- 
+INPUT:
+A. Left thyroid lobe and isthmus
+B. Left thyroid anterior margin
+C. Left superior thyroid tissue
+D. Left level 6 lymph nodes
+
+OUTPUT:
+A. Thyroid gland, left lobe and isthmus, thyroidectomy:
+-
+
+B. Thyroid gland, left lobe, anterior margin, excision:
+- 
+
+C. Thyroid gland, left lobe, superior thyroid tissue, excision:
+- 
+
+D. Lymph nodes, left neck, level VI, dissection:
+- 
+
+INPUT:
+A.	Larynx, subglottic tissue
+
+OUTPUT:
+A. Larynx, subglottic tissue, excision:
+-
+INPUT:
+A. Left maxillary sinus
+B. Left posterior ethmoid
+C. Bilateral sinonasal contents
+
+OUTPUT:
+A. Paranasal sinus, left maxillary, excision:
+- 
+
+B. Paranasal sinus, left posterior ethmoid, excision:
+- 
+
+C. Nasal cavity and paranasal sinuses, bilateral, extraction:
+- 
+INPUT:
+A. Left anterior tongue
+
+OUTPUT:
+A. Oral cavity, left anterior tongue, biopsy:
+- 
+INPUT:
+A. Right maxillary sinus contents
+B. Right sinonasal contents
+
+OUTPUT:
+A. Paranasal sinus, right maxillary, extraction:
+-
+
+B. Nasal cavity and paranasal sinuses, right, extraction:
+-
+INPUT:
+A. Likely tumor left sphenoethmoid recess
+B. Possible tumor at superior vertical  left middle turbinate
+C. Cartilage and bone posterior septum midline
+D. Possible tumor floor of anterior left skull base below crista galli
+E. Possible tumor left bullae ethmoidalis
+F. Tumor left posterior ethmoid
+G. Possible tumor mucosa of left medial and inferior orbit
+H. Tumor on left superior turbinate
+I. Margin horizontal attachment left superior turbinate
+J. Possible tumor anterior wall of left sphenoid
+K. Bone of left anterior wall of sphenoid
+L. Margin left superior uncinate process and agger nasi
+M. Left sinonasal contents
+N. Margin left superior bullae
+O. Margin superior oblique middle turbinate
+P. Margin medial left anterior ethmoid skull base mucosa
+Q. Left middle turbinate with possible tumor
+R. Margin horizontal attachment of left middle turbinate 
+S. Bone of left olfactory cleft
+T. Attachment of tumor at left cribriform plate ink on anterior mucosal surface
+U. Margin left olfactory filum anterior 
+V. Margin left olfactory filum middle
+W. Margin left olfactory filum posterior
+X. Margin contralateral right septal mucosa
+Y. Margin left anterior septal mucosa
+Z. Margin left inferior septal mucosa
+AA. Right contralateral septal mucosal margin #2
+
+OUTPUT:
+A. Nasal cavity, left sphenoethmoid recess, excision (fs):
+-
+
+B. Nasal cavity, possible tumor at superior vertical  left middle turbinate, excision (fs):
+- 
+
+C. Nasal cavity, posterior septum midline cartilage and bone, excision:
+- 
+
+D. Nasal cavity/skull base, floor of anterior left skull base below crista galli, excision (fs):
+- 
+
+E. Nasal cavity, left bullae ethmoidalis, excision (fs):
+- 
+
+F. Paranasal sinus, left posterior ethmoid, excision (fs):
+- 
+
+G. Nasal cavity, mucosa of left medial and inferior orbit, excision (fs):
+- 
+
+H. Nasal cavity, left superior turbinate, excision (fs):
+- 
+
+I. Nasal cavity, margin horizontal attachment left superior turbinate, excision (fs):
+- 
+
+J. Paranasal sinus, left sphenoid anterior wall excision (fs):
+- 
+
+K. Paranasal sinus, left anterior wall of sphenoid, excision (fs):
+- 
+
+L. Nasal cavity, margin left superior uncinate process and agger nasi, excision (fs):
+- 
+
+M. Nasal cavity and paranasal sinuses, left, extraction:
+- 
+
+N. Nasal cavity, margin left superior bullae, excision (fs):
+- 
+
+O. Nasal cavity, margin superior oblique middle turbinate, excision (fs):
+- 
+
+P. Paranasal sinus, margin medial left anterior ethmoid skull base mucosa, excision (fs):
+- 
+
+Q. Nasal cavity, left middle turbinate with possible tumor, excision (fs):
+- 
+
+R. Nasal cavity, margin horizontal attachment of left middle turbinate, excision (fs):
+- 
+
+S. Nasal cavity, bone of left olfactory cleft, excision:
+- 
+
+T. Nasal cavity, attachment of tumor at left cribriform plate, excision (fs):
+- 
+
+U. Nasal cavity, margin left olfactory filum anterior, excision (fs):
+- 
+
+V. Nasal cavity, margin left olfactory filum middle, excision (fs):
+- 
+
+W. Nasal cavity, margin left olfactory filum posterior, excision (fs):
+- 
+
+X. Nasal cavity, margin contralateral right septal mucosa, excision (fs):
+- 
+
+Y. Nasal cavity, margin left anterior septal mucosa, excision (fs):
+- 
+
+Z. Nasal cavity, margin left inferior septal mucosa, excision (fs):
+- 
+
+AA. Nasal cavity, right contralateral septal mucosal margin #2, excision (fs):
+- 
+______________________________________________________________________________
+INPUT:
+A. Right superior parathyroid
+B. Left inferior parathyroid
+C. Right inferior parathyroid
+D. Left inferior parathyroid #2
+
+OUTPUT:
+A. Parathyroid, right superior, parathyroidectomy (fs):
+- 
+
+B. Parathyroid, left inferior, parathyroidectomy (fs):
+- 
+
+C. Parathyroid, right inferior, parathyroidectomy (fs):
+- 
+
+D. Parathyroid, left inferior #2, parathyroidectomy:
+- 
+______________________________________________________________________________
+INPUT:
+A.	Left anterior tongue biopsy
+
+OUTPUT:
+A. Oral cavity, left anterior tongue, biopsy:
+-
+______________________________________________________________________________
+INPUT:
+A. Vallecula
+B. Additional vallecula
+C. Deeper vallecula
+D. Deepest vallecula
+
+OUTPUT:
+A. Oropharynx, vallecula, biopsy:
+- 
+
+B. Oropharynx, additional vallecula, biopsy:
+- 
+
+C. Oropharynx, deeper vallecula, biopsy:
+- 
+
+D. Oropharynx, deepest vallecula, biopsy:
+- 
+______________________________________________________________________________
+INPUT:
+A. Left parotid
+B. Left neck levels II, III and selective V
+C. Additional left deep lobe parotid
+
+OUTPUT:
+A.	Parotid gland, left, parotidectomy:
+-
+
+B.	Lymph nodes, left neck, levels II, III and selective V, dissection:
+-	
+
+C.	Parotid gland, additional left deep lobe, parotidectomy:
+- 
+______________________________________________________________________________
