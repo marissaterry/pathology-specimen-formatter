@@ -718,3 +718,37 @@ B.	Lymph nodes, left neck, levels II, III and selective V, dissection:
 C.	Parotid gland, additional left deep lobe, parotidectomy:
 - 
 ______________________________________________________________________________
+INPUT:
+A. Tissue to the right anterior sternocleidomastoid
+B. Right level II lymph nodes
+C. Right neck level III and IV lymph nodes
+D. Right central neck lymph nodes
+E. Left neck level II lymph node
+F. Left neck level III and IV lymph node
+G. Tissue anterior to strap muscle
+ 
+ 
+OUTPUT:
+ 
+A. Soft tissue, tissue to the right anterior sternocleidomastoid, excision:
+- 
+ 
+B. Lymph nodes, right neck, level II, dissection:
+-
+ 
+C. Lymph nodes, right neck, levels III and IV, dissection:
+- 
+ 
+D. Lymph nodes, right central neck, dissection:
+- 
+ 
+E. Lymph nodes, left neck, level II, dissection:
+-
+ 
+F. Lymph nodes, left neck, levels III and IV, dissection:
+- 
+ 
+G. Soft tissue, anterior to strap muscle, excision:
+-
+
+
